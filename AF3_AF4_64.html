@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AF3_AF4_CHANNELS</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+
+
+        <img src="frontal_64.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="" title="" href="FC_64.html" coords="107,362,196,358,231,316,359,288,370,292,389,290,399,290,787,369,659,270,379,115" shape="poly">
+    <area target="" alt="" title="" href="AF3_AF4_64.html" coords="181,639,101,589,173,534,163,515,208,507,225,493,207,469,282,449,316,445,350,438,390,432,414,428,417,408,491,403,518,434,526,447,551,464,622,466,637,501,646,497,661,524,637,665,772,603,650,527,679,516,691,519,711,521,286,510" shape="poly">
+    <area target="" alt="" title="" href="F3_F4_Fz.html" coords="424,306,595,374,648,384,737,400,167,402,133,495,181,491,191,447,189,427,199,402,277,342,365,335,743,470,736,505,715,506,495,387,401,353,425,310" shape="poly">
+</map>
+
+        <!-- <img src="frontal_64.png" usemap="#image-map"> -->
+<!-- 
+<map name="image-map">
+    <area target="" alt="" title="" href="Fpz_Fp1_Fp2_64.html" coords="206,610,457,513,700,620" shape="poly">
+    <area target="" alt="" title="" href="F3_F4_Fz.html" coords="455,318,552,358,695,396,219,391" shape="poly">
+    <area target="" alt="" title="" href="F9_F10_64.html" coords="779,544,98,543,209,406,673,399,767,532,781,542" shape="poly">
+    <area target="" alt="" title="" href="FC_64.html" coords="168,396,213,219,314,179,403,125,473,174,572,207,767,339,115,300" shape="poly">
+</map> -->
+
+    </div>
+
+    <div class="info-container">
+      <h2>Channels and Functionalities:AFZ,AF3,AF4,AF7,AF8</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+    <div class="button-container">
+        <a href="index.html" class="button">Home</a>
+        <!-- <a href="button_functionality.html" class="button">Button 2</a>
+        <a href="button_functionality.html" class="button">Button 3</a> -->
+      </div>
+
+    
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 0;
+        canvas.height = 0;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; 
+    });
+
+    function displayFunctionality() {
+      
+        var functionalities = [
+  {
+    channels: ["AFZ, AF3, AF4, AF7, AF8"],
+    functionalities: [
+      "Mental states such as mental fatigue and high alert"
+    ]
+  },
+  {
+    channels: [" AF3, AF4, AF7, AF8,Fp1, Fp2, FpZ, F5, F6, F7, F8, F9, F10, F1, F3, F2, F4, FT9, FT10"],
+    functionalities: [
+      "Planning, Motivation, Discipline, Temporary Memory, Judgment, Decision making, Personality, Problem solving, Organization, etc., and other Executive and Cognitive Functions"
+    ]
+  },
+  {
+    channels: [" AF3, AF4, AF7, AF8,Fp1, Fp2, FpZ, F5, F6, F7, F8, F9, F10, FZ, FCZ"],
+    functionalities: [
+      "Cognitive Attention"
+    ]
+  },
+  {
+    channels: [" AF3, AF4, AF7, AF8,Fp1, Fp2, FpZ, F5, F6, F7, F8, F9, F10, PZ, CPZ, T9, T10"],
+    functionalities: [
+      "Computation"
+    ]
+  },
+  {
+    channels: [" AF3, AF4, AF7, AF8,Fp1, Fp2, FpZ, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, T9, T10"],
+    functionalities: [
+      "Emotional control and Processing"
+    ]
+  }
+];
+
+
+
+
+
+
+
+
+
+
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channels;
+        var functionality = functionalityItem.functionalities;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>
+
+

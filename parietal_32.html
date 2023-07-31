@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parietal Lobe</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="image-container">
+    <img src="parietal_32.png" usemap="#image-map">
+  
+    <map name="image-map">  
+      <area target="" alt="PO3 PO4 group" title="C3_C4_CZ group" href="C4_C3_CZ_32.html" coords="167,545,133,296" shape="rect">
+      <area target="" alt="O1 O2 Oz group" title="CP6_CP5 group" href="CP6_CP5_32.html" coords="291,590,214,201" shape="rect">
+      <area target="" alt="O1 O2 Oz group" title="P7_P8 group" href="P7_P8_32.html" coords="386,181,359,630,383,633,386,182,383,195,386,181" shape="0">
+
+    </map>
+  </div>
+  
+
+
+    <div class="info-container">
+      <h2>Channels and Functionalities:PZ,P3,P4</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+
+    <div class="button-container">
+      <a href="index.html" class="button">Home</a>
+      <!-- <a href="button_functionality.html" class="button">Button 2</a>
+      <a href="button_functionality.html" class="button">Button 3</a> -->
+    </div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 652;
+        canvas.height = 730;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; // Trigger the onload event
+    });
+
+    function displayFunctionality() {
+      var channels = ["Fp1", "Fp2", "C3", "C4"];
+
+      var functionalities = [
+      {
+
+
+     
+        channels: ["P3, P4, PZ, P7, P8, PO3, PO4, PO7, PO8"],
+        functionalities: [
+        "Sensory Integration, Spatial Awareness"
+        ]
+     
+      },
+
+      {
+    channels: ["PZ, Fp1, Fp2, AF3, AF4, F7, F8, T7, T8"],
+    functionalities: [
+      "Computation"
+    ]
+  },
+  {
+    channels: ["PZ, P3, P4, P7, P8, PO7, PO8, PO3, PO4"],
+    functionalities: [
+      "Sensory Integration, Spatial Awareness"
+    ]
+  }
+    ];
+//       var functionalities = [
+// { channel: "C3, C4", functionality: "Detection, Processing, and Analysis of Somatic Sensations like Touch, Pain, Pressure, Temperature, etc." },
+// { channel: "C3, C4, Fp1, Fp2", functionality: "Voluntary movements of muscles, Planning, Coordination, and Execution of Body Movements, etc." },
+// { channel: "C3, C4, O1, O2", functionality: "Sensory Integration, Spatial Awareness" }
+// ];
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channels;
+        var functionality = functionalityItem.functionalities;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>

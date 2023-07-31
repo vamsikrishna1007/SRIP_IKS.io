@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temporal Lobe</title>
+  <style>
+    .image-container {
+      display: flex;
+    }
+
+    .image-container img {
+      margin-right: 10px;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="image-container">
+    <img id="rightImage" src="right_16_temp.png" alt="Right Image">
+    <img id="leftImage" src="left_temp_16.png" alt="Left Image">
+
+    <div class="button-container">
+      <a href="index.html" class="button">Home</a>
+      <!-- <a href="button_functionality.html" class="button">Button 2</a>
+      <a href="button_functionality.html" class="button">Button 3</a> -->
+    </div>
+</div>
+
+  </div>
+
+  <ul id="functionalities-list"></ul>
+  
+  <script>
+    var functionalities = [
+  {
+    channels: ["T3", "T4"],
+    functionalities: [
+      "Detection of auditory stimuli",
+      "Processing of auditory stimuli",
+      "Analyzing of auditory stimuli",
+      "Interpreting auditory stimuli",
+      "Memorizing auditory stimuli",
+      "Detection of olfactory stimuli",
+      "Processing of olfactory stimuli",
+      "Analyzing of olfactory stimuli",
+      "Interpreting olfactory stimuli",
+      "Memorizing olfactory stimuli"
+    ]
+  },
+  {
+    channels: ["T3", "T4", "T5", "T6"],
+    functionalities: [
+      "Long-Term Memory",
+      "Academic Skills",
+      "Learning",
+      "Emotional control (Fear, Anxiety, Anger, Arousal, Situational attention)"
+    ]
+  },
+  {
+    channels: ["T5"],
+    functionalities: [
+      "Comprehension of written and spoken language"
+    ]
+  },
+  {
+    channels: ["T3", "T4", "T5", "T6", "Fp1", "Fp2", "F3", "F4", "F7", "F8", "Fz"],
+    functionalities: [
+      "Emotional control and processing"
+    ]
+  },
+  {
+    channels: ["T3", "T4", "T5", "T6", "Fp1", "Fp2", "F7", "F8", "Pz"],
+    functionalities: [
+      "Computation"
+    ]
+  },
+  {
+    channels: ["T5", "T6", "PZ", "P3", "P4", "O1", "O2"],
+    functionalities: [
+      "Sensory integration",
+      "Spatial awareness"
+    ]
+  },
+  {
+    channels: ["T5", "T6", "P3", "P4"],
+    functionalities: [
+      "Sense of taste",
+      "Naming of objects"
+    ]
+  }
+];
+
+    window.addEventListener('load', function() {
+      var leftImage = document.getElementById('leftImage');
+      leftImage.onload = function() {
+        var leftCanvas = document.createElement('canvas');
+        var leftCtx = leftCanvas.getContext('2d');
+        leftCanvas.width = 750;
+        leftCanvas.height = 700;
+        leftCtx.drawImage(leftImage, 0, 0, leftCanvas.width, leftCanvas.height);
+        leftImage.src = leftCanvas.toDataURL();
+        leftImage.width = leftCanvas.width;
+        leftImage.height = leftCanvas.height;
+      };
+      leftImage.src = leftImage.src; // Trigger the onload event
+
+      var rightImage = document.getElementById('rightImage');
+      rightImage.onload = function() {
+        var rightCanvas = document.createElement('canvas');
+        var rightCtx = rightCanvas.getContext('2d');
+        rightCanvas.width = 750;
+        rightCanvas.height = 700;
+        rightCtx.drawImage(rightImage, 0, 0, rightCanvas.width, rightCanvas.height);
+        rightImage.src = rightCanvas.toDataURL();
+        rightImage.width = rightCanvas.width;
+        rightImage.height = rightCanvas.height;
+      };
+      rightImage.src = rightImage.src; // Trigger the onload event
+
+      var functionalitiesList = document.getElementById('functionalities-list');
+      for (var i = 0; i < functionalities.length; i++) {
+        var item = document.createElement('li');
+        item.innerHTML = "<strong>Channels:</strong> " + functionalities[i].channels.join(", ") + "<br><strong>Functionalities:</strong> " + functionalities[i].functionalities.join(", ");
+        functionalitiesList.appendChild(item);
+      }
+    });
+  </script>
+</body>
+</html>

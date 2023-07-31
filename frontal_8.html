@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontal-8 channel montage</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img id="Frontal_image" src="frontal_8.png" alt="Your Image">
+    </div>
+
+    <div class="info-container">
+      <h2>Channels and Functionalities:</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+    <div class="button-container">
+      <a href="index.html" class="button">Home</a>
+      <!-- <a href="button_functionality.html" class="button">Button 2</a>
+      <a href="button_functionality.html" class="button">Button 3</a> -->
+    </div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 750;
+        canvas.height = 700;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; // Trigger the onload event
+    });
+
+    function displayFunctionality() {
+      var channels = ["Fp1", "Fp2", "C3", "C4"];
+      var functionalities = [
+        { channel: "Fp1", functionality: "Speech Production" },
+        {
+          channel: "Fp1, Fp2",
+          functionality:
+            "Planning, Motivation, Discipline, Temporary Memory, Emotional Control, Personality, Problem Solving, Organization, Computation, Cognitive Attention, other Executive and Cognitive Functions, Social Cognition",
+        },
+        {
+          channel: "Fp1, Fp2, C3, C4",
+          functionality:
+            "Voluntary movements of muscles, Planning Coordination and Execution of Body Movements, etc.",
+        },
+      ];
+
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channel;
+        var functionality = functionalityItem.functionality;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .image-container {
+       position: relative;
+       display: inline-block;
+     }
+ 
+     .overlay-text {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       padding: 1px;
+       background-color: rgba(0, 0, 0, 0.7);
+       color: #fff;
+       font-size: 16px;
+       opacity: 0;
+       transition: opacity 0.3s ease;
+     }
+ 
+     .image-container:hover .overlay-text {
+       opacity: 1;
+     }
+ 
+     .dropdown-container {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       z-index: 1;
+       background-color: #fff;
+       padding: 5px;
+     }
+ 
+     .dropdown {
+       width: 200px;
+     }
+   </style>
+  </style>
+
+</head>
+<body>
+  <h1>64-Channel Montage</h1>
+  <div class="image-container">
+    <img src="front_page_brain.jpg" usemap="#image-map">
+
+    <map name="image-map">
+      <area target="" alt="Frontal lobe" title="Frontal lobe" href="frontal_64.html" coords="347,481,345,457,356,429,374,412,388,397,403,372,417,360,438,350,453,336,487,310,476,261,492,246,492,211,498,154,519,90,482,80,462,88,443,92,424,98,400,106,382,112,365,124,345,128,334,137,326,150,313,155,304,163,289,175,278,180,269,186,256,192,248,195,239,204,234,217,214,246,196,268,183,282,170,303,165,324,165,340,163,356,163,368,163,385,162,409,171,419,187,440,204,459,245,491,255,494,265,494,274,495" shape="poly">
+      <area target="" alt="Temporal lobe" title="Temporal lobe" href="temporal_64.html" coords="459,573,417,556,387,553,371,552,356,533,349,514,356,492,360,477,360,462,367,450,372,439,380,422,394,411,402,400,410,383,426,375,435,372,440,361,453,361,462,352,471,343,491,333,501,325,513,323,543,304,558,297,575,297,591,298,603,299,610,304,626,294,633,302,626,332,632,332,642,332,651,341,663,343,670,349,668,361,684,360,699,354,713,357,734,361,739,375,753,362,746,388,744,401,746,418,743,427,722,438,713,444,690,447,673,447,643,450,620,450,641,462,655,469,708,451" shape="poly">
+      <area target="" alt="Occipital lobe" title="Occipital lobe" href="occipetal_64.html" coords="761,390,771,378,782,366,786,352,798,342,809,332,821,322,830,316,842,308,856,291,860,265,873,241,882,241,896,252,902,267,905,278,921,289,925,304,941,314,937,324,937,339,934,348,934,365,931,380,924,392,917,412,908,413,898,422,879,426,878,435,857,435,837,434,830,437,814,439,799,437,786,430,769,421,763,420" shape="poly">
+      <area target="" alt="Parietal lobe" title="Parietal lobe" href="parietal_64.html" coords="498,302,498,287,498,273,508,258,509,237,510,219,504,206,507,184,518,170,518,151,526,141,534,127,535,97,543,89,565,89,580,93,591,90,604,90,626,93,634,101,646,101,657,104,665,106,671,106,691,109,711,118,736,128,761,131,793,154,820,185,834,184,843,187,857,193,859,204,866,215,867,223,856,229,855,243,855,262,843,278,843,293,830,304,811,319,796,323,786,331,774,337,754,337,727,338,692,341,677,331,663,315,655,297,647,287,640,279,623,276,610,280,596,284,583,284,575,284,560,284,556,289,538,289,522,302" shape="poly">
+  </map>
+
+  </div>
+</div>
+
+<div class="dropdown-container">
+  <label for="electrode-select">Select EEG Electrodes:</label>
+  <select id="electrode-select" onchange="handleElectrodeChange(this.value)">
+    <option value="Home Page">Home Page</option>
+    <option value="8">8 electrodes</option>
+    <option value="16">16 electrodes</option>
+    <option value="32">32 electrodes</option>
+    <option value="64">64 electrodes</option>
+  </select>
+</div>
+</div>
+
+<script>
+function handleElectrodeChange(value) {
+      // You can add code here to handle the electrode selection
+      // For example, you can redirect to a different page based on the selected value
+      if (value === "Home Page") {
+        window.location.href = "index.html";
+      }
+      if (value === "8") {
+        window.location.href = "8-channel_montage.html";
+      } else if (value === "16") {
+        window.location.href = "16-channel_montage.html";
+      } else if (value === "32") {
+        window.location.href = "32-channel_montage.html";
+      } else if (value=== "64") {
+window.location.href = "64-channel_montage.html";
+}
+}
+</script>
+
+</body>
+</html>
+

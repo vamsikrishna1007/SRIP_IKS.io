@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parietal Lobe</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img id="Frontal_image" src="parietal_16.png" alt="Your Image">
+    </div>
+
+    <div class="info-container">
+      <h2>Channels and Functionalities:</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+    <div class="button-container">
+      <a href="index.html" class="button">Home</a>
+      <!-- <a href="button_functionality.html" class="button">Button 2</a>
+      <a href="button_functionality.html" class="button">Button 3</a> -->
+    </div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 652;
+        canvas.height = 730;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; // Trigger the onload event
+    });
+
+    function displayFunctionality() {
+      var channels = ["Fp1", "Fp2", "C3", "C4"];
+
+      var functionalities = [
+      {
+        channels: ["C3", "C4", "CZ"],
+        functionalities: [
+          "Detection of somatic sensations like Touch, Pain, Pressure, Temperature, etc.",
+          "Processing of somatic sensations like Touch, Pain, Pressure, Temperature, etc.",
+          "Analyzing somatic sensations like Touch, Pain, Pressure, Temperature, etc.",
+          "Interpretation of somatic stimuli"
+        ]
+      },
+      {
+        channels: ["P4", "P3", "C3", "C4", "CZ"],
+        functionalities: [
+          "Processing of somatic sensations",
+          "Analyzing somatic sensations",
+          "Interpretation and memorization of somatic sensations"
+        ]
+      },
+      {
+        channels: ["PZ", "P3", "P4", "O1", "O2", "T5", "T6"],
+        functionalities: [
+          "Sensory integration",
+          "Spatial awareness"
+        ]
+      },
+      {
+        channels: ["C3", "C4", "CZ", "F3", "F4", "Fz"],
+        functionalities: [
+          "Voluntary movements of muscles",
+          "Planning",
+          "Coordination and Execution of body movements"
+        ]
+      },
+      {
+        channels: ["Pz", "Fp1", "Fp2", "F7", "F8", "T3", "T4", "T5", "T6", "O1", "O2"],
+        functionalities: [
+          "Computation"
+        ]
+      },
+      {
+        channels: ["P3", "P4", "T5", "P6"],
+        functionalities: [
+          "Sense of taste",
+          "Naming of objects"
+        ]
+      }
+    ];
+//       var functionalities = [
+// { channel: "C3, C4", functionality: "Detection, Processing, and Analysis of Somatic Sensations like Touch, Pain, Pressure, Temperature, etc." },
+// { channel: "C3, C4, Fp1, Fp2", functionality: "Voluntary movements of muscles, Planning, Coordination, and Execution of Body Movements, etc." },
+// { channel: "C3, C4, O1, O2", functionality: "Sensory Integration, Spatial Awareness" }
+// ];
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channels;
+        var functionality = functionalityItem.functionalities;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>

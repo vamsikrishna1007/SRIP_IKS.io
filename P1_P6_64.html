@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>P1_P6_64</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="image-container">
+    
+  
+  
+  <img src="parietal_64.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="" title="" href="P1_P6_64.html" coords="423,561,318,624,313,246,360,232" shape="poly">
+    <area target="" alt="" title="" href="C1_C6_CZ_64.html" coords="84,703,187,450,110,175,34,188,46,276" shape="poly">
+    <area target="" alt="" title="" href="cpz_cp1_cp6_64.html" coords="158,654,188,558,208,502,237,413,205,319,186,234,158,179,210,654,226,572,240,509,277,410,260,333,232,240,158,95,210,686" shape="poly">
+    <area target="" alt="" title="" href="PO7_PO9_64.html" coords="294,718,229,695,290,636,331,642" shape="poly">
+</map>
+
+</div>
+    <div class="info-container">
+      <h2>Channels and Functionalities:P1,P2,P3,P4,P5,P6,P9,P7,PZ</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+
+    <div class="button-container">
+        <a href="index.html" class="button">Home</a>
+        <!-- <a href="button_functionality.html" class="button">Button 2</a>
+        <a href="button_functionality.html" class="button">Button 3</a> -->
+      </div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 800;
+        canvas.height = 730;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; // Trigger the onload event
+    });
+
+    function displayFunctionality() {
+      var channels = ["Fp1", "Fp2", "C3", "C4"];
+
+      var functionalities = [
+  {
+    channels: ["P1, P2, P5, P6, P3, P4, P7, P9, P10, P8, PZ, PO8, PO7, PO3, PO4, POZ, TP9, TP10"],
+    functionalities: [
+      "Sensory Integration, Spatial Awareness"
+    ]
+  },
+  {
+    channels: ["PZ,Fp1, Fp2, FpZ, F5, F6, F7, F8, F9, F10, AF3, AF4, AF7, AF8, CPZ, T9, T10"],
+    functionalities: [
+      "Computation"
+    ]
+  },
+  {
+    channels: ["P7,P9,TP9"],
+    functionalities: [
+      "Comprehension of spoken and written languages"
+    ]
+  },
+  {
+    channels: ["P7,P9,PO7,P8,PO8,P10"],
+    functionalities: [
+      "Naming of Objects"
+    ]
+  }
+  
+];
+
+
+
+
+//       var functionalities = [
+// { channel: "C3, C4", functionality: "Detection, Processing, and Analysis of Somatic Sensations like Touch, Pain, Pressure, Temperature, etc." },
+// { channel: "C3, C4, Fp1, Fp2", functionality: "Voluntary movements of muscles, Planning, Coordination, and Execution of Body Movements, etc." },
+// { channel: "C3, C4, O1, O2", functionality: "Sensory Integration, Spatial Awareness" }
+// ];
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channels;
+        var functionality = functionalityItem.functionalities;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>

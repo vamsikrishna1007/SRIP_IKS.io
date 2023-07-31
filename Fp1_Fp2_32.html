@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fp1_Fp2_Channels</title>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .info-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <!-- <img id="Frontal_image" src="frontal_32.png" alt="Your Image"> -->
+      
+<img src="frontal_32.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="" title="F3_F4_Fz" href="frontal_32.html" coords="410,359,315,444,514,444" shape="poly">
+    <area target="" alt="" title="FC6_FC5" href="FC5_FC6_32.html" coords="177,348,317,256,454,254,609,334,177,308,158,333" shape="poly">
+    <area target="" alt="" title="Fp1_Fp2" href="Fp1_Fp2_32.html" coords="147,512,673,487" shape="rect">
+    <area target="" alt="" title="F7_F8_32" href="F7_F8_32.html" coords="145,576,618,556" shape="rect">
+</map>
+
+    </div>
+
+    <div class="info-container">
+      <h2>Channels and Functionalities:Fp2,Fp1,AF1,AF3</h2>
+      <ul id="functionality-list"></ul>
+    </div>
+    <div class="button-container">
+        <a href="index.html" class="button">Home</a>
+        <!-- <a href="button_functionality.html" class="button">Button 2</a>
+        <a href="button_functionality.html" class="button">Button 3</a> -->
+      </div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var img = document.getElementById('Frontal_image');
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 761;
+        canvas.height = 720;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        img.src = canvas.toDataURL();
+        img.width = canvas.width;
+        img.height = canvas.height;
+      };
+      img.src = img.src; 
+    });
+
+    function displayFunctionality() {
+    
+        var functionalities = [
+  {
+    channels: ["Fp1, Fp2,  AF3, AF4,F7, F8"],
+    functionalities: [
+      "Planning, Motivation, Discipline, Temporary Memory, Judgement, Decision making, Personality, Problem solving, Organization, and other Executive and Cognitive Functions"
+    ]
+  },
+  {
+    channels: ["Fp1, Fp2,AF3, AF4, F7, F8, Fz "],
+    functionalities: [
+      "Cognitive Attention"
+    ]
+  },
+  {
+    channels: ["Fp1, Fp2,  AF3, AF4,F7, F8, Pz, T7, T8"],
+    functionalities: [
+      "Computation"
+    ]
+  },
+  {
+    channels: ["Fp1, Fp2, AF3, AF4, F3, F4, F7, F8, Fz, T8, T7"],
+    functionalities: [
+      "Emotional Control and Processing"
+    ]
+  }
+];
+
+
+
+      
+
+
+
+
+
+
+
+      var functionalityList = document.getElementById("functionality-list");
+
+      for (var i = 0; i < functionalities.length; i++) {
+        var functionalityItem = functionalities[i];
+        var channel = functionalityItem.channels;
+        var functionality = functionalityItem.functionalities;
+
+        var channelItem = document.createElement("li");
+        channelItem.innerHTML = "<strong>Channel:</strong> " + channel;
+
+        var functionalityItem = document.createElement("li");
+        functionalityItem.innerHTML = "<strong>Functionality:</strong> " + functionality;
+
+        functionalityList.appendChild(channelItem);
+        functionalityList.appendChild(functionalityItem);
+        functionalityList.appendChild(document.createElement("br"));
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", displayFunctionality);
+  </script>
+</body>
+</html>
+

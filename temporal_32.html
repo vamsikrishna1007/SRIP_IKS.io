@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temporal Lobe</title>
+  <style>
+    .image-container {
+      display: flex;
+    }
+
+    .image-container img {
+      margin-right: 10px;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="image-container">
+    <img id="rightImage" src="right_paterial_32.png" alt="Right Image">
+    <img id="leftImage" src="left_temp_32.png" alt="Left Image">
+
+    <div class="button-container">
+        <a href="index.html" class="button">Home</a>
+        <!-- <a href="button_functionality.html" class="button">Button 2</a>
+        <a href="button_functionality.html" class="button">Button 3</a> -->
+      </div>
+  </div>
+</div>
+<div class="info-container">
+  <h2>Channels and Functionalities:T7,T8</h2>
+ 
+  
+  </div>
+
+  <ul id="functionalities-list"></ul>
+  
+  <script>
+    window.addEventListener('load', function() {
+      var leftImage = document.getElementById('leftImage');
+      leftImage.onload = function() {
+        var leftCanvas = document.createElement('canvas');
+        var leftCtx = leftCanvas.getContext('2d');
+        leftCanvas.width = 750;
+        leftCanvas.height = 700;
+        leftCtx.drawImage(leftImage, 0, 0, leftCanvas.width, leftCanvas.height);
+        leftImage.src = leftCanvas.toDataURL();
+        leftImage.width = leftCanvas.width;
+        leftImage.height = leftCanvas.height;
+      };
+      leftImage.src = leftImage.src; // Trigger the onload event
+
+      var rightImage = document.getElementById('rightImage');
+      rightImage.onload = function() {
+        var rightCanvas = document.createElement('canvas');
+        var rightCtx = rightCanvas.getContext('2d');
+        rightCanvas.width = 750;
+        rightCanvas.height = 700;
+        rightCtx.drawImage(rightImage, 0, 0, rightCanvas.width, rightCanvas.height);
+        rightImage.src = rightCanvas.toDataURL();
+        rightImage.width = rightCanvas.width;
+        rightImage.height = rightCanvas.height;
+      };
+      rightImage.src = rightImage.src; // Trigger the onload event
+
+      var functionalities = [
+        { channels: ["T8", "T7"], functionalities: ["Detection of Auditory Stimuli", "Processing of Auditory Stimuli", "Analyzing of Auditory Stimuli", "Interpreting Auditory Stimuli", "Memorizing Auditory Stimuli"] },
+        { channels: ["T8", "T7"], functionalities: ["Detection of Olfactory Stimuli", "Processing of Olfactory Stimuli", "Analyzing of Olfactory Stimuli", "Interpreting Olfactory Stimuli", "Memorizing Olfactory Stimuli"] },
+        { channels: ["T8", "T7"], functionalities: ["Long Term Memory", "Academic Skills", "Learning","Emotional Control (Fear, Anxiety, Anger, Arousal)", "Situational Attention"] },
+        { channels: ["T7","T8","Fp1","Fp2","F7","AF3","AF4","F8","Pz"], functionalities: ["Computation"] },
+        { channels: ["T8", "T7","Fp1", "Fp2", "AF3", "AF4", "F3", "F4", "F7", "F8", "Fz" ], functionalities: ["Emotional Control and Processing"] }
+      ];
+
+      var functionalitiesList = document.getElementById('functionalities-list');
+      for (var i = 0; i < functionalities.length; i++) {
+        var item = document.createElement('li');
+        item.innerHTML = "<strong>Channels:</strong> " + functionalities[i].channels.join(", ") + "<br><strong>Functionalities:</strong> " + functionalities[i
+        ].functionalities.join(", ");
+functionalitiesList.appendChild(item);
+}
+});
+</script>
+
+</body>
+</html>
